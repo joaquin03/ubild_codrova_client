@@ -1,0 +1,4 @@
+    <plugin name="cordova-plugin-intercom" version="~12.0.0" />
+    <preference name="intercom-app-id" value="p802r1ez"/>
+    <preference name="intercom-ios-api-key" value="ios_sdk-a981d6fc4d584a9104179222794b91151f0c78a7"/>
+    <preference name="intercom-android-api-key" value="android_sdk-..."/>

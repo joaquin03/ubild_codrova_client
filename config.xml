@@ -15,8 +15,37 @@
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 
-     <!-- ICONS -->
+    <preference name="intercom-app-id" value="p802r1ez"/>
+    <preference name="intercom-ios-api-key" value="ios_sdk-a981d6fc4d584a9104179222794b91151f0c78a7"/>
+    <preference name="intercom-android-api-key" value="android_sdk-..."/>
+
+    <feature name="Camera">
+      <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <!-- ICONS -->
     <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <preference name="deployment-target" value="13.0" />
+        <preference name="BackupWebStorage" value="local" />
+
+        <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+            <string>need camera access to take pictures</string>
+        </edit-config>
+
+        <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
+            <string>need photo library access to get pictures from there</string>
+        </edit-config>
+
+        <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+            <string>need location access to find things nearby</string>
+        </edit-config>
+
+        <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
+            <string>need photo library access to save pictures there</string>
+        </edit-config>
+
+        
         <icon src="AppIcons/Assets.xcassets/AppIcon.appiconset/16.png" width="16" height="16" />
         <icon src="AppIcons/Assets.xcassets/AppIcon.appiconset/20.png" width="20" height="20" />
         <icon src="AppIcons/Assets.xcassets/AppIcon.appiconset/29.png" width="29" height="29" />

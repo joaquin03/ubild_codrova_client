@@ -1,0 +1,16 @@
+{
+    "ios": {
+        "debug": {
+            "codeSignIdentity": "Apple Developer",
+            "provisioningProfile": "UBILD Technologies Inc",
+            "developmentTeam": "X9WQ8MNJLD",
+            "packageType": "development"
+        },
+        "release": {
+            "codeSignIdentity": "Apple Distribution",
+            "provisioningProfile": "UBILD Technologies Inc",
+            "developmentTeam": "X9WQ8MNJLD",
+            "packageType": "app-store"
+        }
+    }
+}

@@ -1,51 +1,81 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.vonigo.teamoddjob" version="2.2.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.vonigo.teamoddjob"
+        version="2.2.5"
+        xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
     <name>UBILD</name>
     <description>UBILD Client APP</description>
     <author email="support@ubildapp.com" href="https://ubildapp.com">
         UBILD Technologies Inc
     </author>
+
+    <!--
     <content src="https://client.ubildapp.com" />
     <allow-navigation href="https://client.ubildapp.com/*" />
-    <platform name="android">
-        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
-          <application android:usesCleartextTraffic="true" />
-        </edit-config>
-    </platform>
+    <content src="https://dev.ubildapp.com" />
+    <allow-navigation href="https://dev.ubildapp.com/*" />
+    <content src="http://localhost:8080" />
+    <allow-navigation href="http://localhost:8080/*" />
+    -->
+    <content src="https://client.ubildapp.com" />
+    <allow-navigation href="https://client.ubildapp.com/*" />
+
+    <resource-file src="google-services.json" target="app/google-services.json" />
+    <preference name="android-minSdkVersion" value="23"/>
+    <preference name="android-targetSdkVersion" value="31"/>
+
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 
     <preference name="intercom-app-id" value="p802r1ez"/>
     <preference name="intercom-ios-api-key" value="ios_sdk-a981d6fc4d584a9104179222794b91151f0c78a7"/>
-    <preference name="intercom-android-api-key" value="android_sdk-..."/>
+    <preference name="intercom-android-api-key" value="android_sdk-08f8ea7b5c49a21203f5065c65730916afc04811"/>
 
     <feature name="Camera">
       <param name="ios-package" value="CDVCamera" />
     </feature>
     <!-- ICONS -->
     <platform name="ios">
+        <config-file target="*-Info.plist" parent="WKAppBoundDomains">
+            <array>
+                <string>http://localhost:8080</string>
+                <string>https://dev.ubildapp.com</string>
+                <string>https://client.ubildapp.com</string>
+            </array>
+        </config-file>
+
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <preference name="deployment-target" value="13.0" />
         <preference name="BackupWebStorage" value="local" />
 
         <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
-            <string>need camera access to take pictures</string>
+            <string>Need camera access to take pictures</string>
         </edit-config>
 
         <edit-config target="NSPhotoLibraryUsageDescription" file="*-Info.plist" mode="merge">
-            <string>need photo library access to get pictures from there</string>
+            <string>nNed photo library access to get pictures from there</string>
         </edit-config>
 
         <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
-            <string>need location access to find things nearby</string>
+            <string>Need location access to find things nearby</string>
         </edit-config>
 
         <edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
-            <string>need photo library access to save pictures there</string>
+            <string>Need photo library access to save pictures there</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="UNUserNotificationCenter.alert">
+            <string>Sending push notification for the chat</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="UNUserNotificationCenter.sound">
+            <string>Sending push notification for the chat</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="UNUserNotificationCenter.badge">
+            <string>Sending push notification for the chat</string>
         </edit-config>
 
-        
+
         <icon src="AppIcons/Assets.xcassets/AppIcon.appiconset/16.png" width="16" height="16" />
         <icon src="AppIcons/Assets.xcassets/AppIcon.appiconset/20.png" width="20" height="20" />
         <icon src="AppIcons/Assets.xcassets/AppIcon.appiconset/29.png" width="29" height="29" />
@@ -79,10 +109,19 @@
         <icon src="AppIcons/Assets.xcassets/AppIcon.appiconset/1024.png" width="1024" height="1024" />
     </platform>
     <platform name="android">
+        <uses-permission android:name="android.permission.INTERNET" />
+
+        <preference name="AndroidXEnabled" value="true" />
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
+
         <icon src="AppIcons/android/mipmap-mdpi/ic_launcher.png" density="mdpi" />
         <icon src="AppIcons/android/mipmap-hdpi/ic_launcher.png" density="hdpi" />
         <icon src="AppIcons/android/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
         <icon src="AppIcons/android/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
         <icon src="AppIcons/android/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
     </platform>
+
+    <preference name="intercom-android-push-type" value="FCM"/>
 </widget>

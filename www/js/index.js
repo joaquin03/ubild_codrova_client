@@ -26,5 +26,10 @@ function onDeviceReady() {
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+}
+
+function successfulLogin(userId) {
+    intercom.registerIdentifiedUser({userId: "123456"});
     intercom.registerForPush();
+
 }
